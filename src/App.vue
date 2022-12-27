@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <WebBackground/>
-    <ProductDisplay/>
+    <WebBackground />
+    <ProductDisplay />
   </div>
 </template>
 
@@ -13,18 +13,15 @@ import WebBackground from './components/WebBackground.vue';
 export default {
   name: 'App',
   components: {
-    ProductDisplay,WebBackground
+    ProductDisplay, WebBackground
   }
 }
 </script>
 
 <style>
-#app {
+#app {}
 
-}
-
-body
-{
+body {
   margin: 0;
 }
 </style>
