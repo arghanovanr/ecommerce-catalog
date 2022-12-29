@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ BackgroundWoman: data.woman, BackgroundMan: data.man }"></div>
+    <div :class="{ BackgroundWoman: data.woman, BackgroundMan: data.man, Background: data.unavaliable }"></div>
 </template>
 <script>
 export default {
@@ -30,5 +30,13 @@ export default {
     height: 66vh;
     background-color: #d6e6ff;
     background-image: url("../assets/bg-pattern.svg");
+}
+
+.Background {
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 66vh;
+    background-color: #DCDCDC;
 }
 </style>

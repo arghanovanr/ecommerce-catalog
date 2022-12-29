@@ -1,15 +1,12 @@
 <template>
-    <div class="view">
+    <div v-if="!data.unavaliable" class="view">
         <div class="card">
             <div class="imageBox">
                 <img :src="data.image" />
             </div>
             <div class="textContainer">
                 <div class="headingBox">
-                    <div :class="{
-    colorPalletteWoman: data.woman,
-    colorPalletteMan: data.man,
-}">
+                    <div :class="{ colorPalletteWoman: data.woman, colorPalletteMan: data.man, }">
                         {{ data.productName }}
                     </div>
                 </div>
@@ -36,6 +33,13 @@
             </div>
         </div>
     </div>
+    <div v-else class="unavaliableView">
+        <div class="unavaliableCard">
+            This product is unavaliable to show
+            <NextProductButton :unavaliable="data.unavaliable" />
+        </div>
+    </div>
+
 </template>
 <script>
 import RatingComponent from "./RatingComponent.vue";
@@ -59,6 +63,8 @@ export default {
 };
 </script>
 <style scoped>
+/* Color Pallette CSS */
+
 .colorPalletteWoman {
     color: #720060;
 }
@@ -66,6 +72,35 @@ export default {
 .colorPalletteMan {
     color: #002772;
 }
+
+/* Unavaliable View CSS */
+
+.unavaliableView {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unavaliableCard {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    width: 82%;
+    height: 70%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Prompt", sans-serif;
+    font-weight: 550;
+    font-size: 1.2rem;
+    background-image: url("../assets/sad-face.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Normal View CSS */
 
 .view {
     width: 100vw;

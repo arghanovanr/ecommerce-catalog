@@ -20,8 +20,9 @@ export default {
       title: 'data',
       data:
       {
-        man: true,
-        woman: false,
+        man: false,
+        woman: true,
+        unavaliable: false,
         rating: 5,
         productName: "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
         category: "women's clothing",
