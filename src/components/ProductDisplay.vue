@@ -2,39 +2,36 @@
     <div class="view">
         <div class="card">
             <div class="imageBox">
-                <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" />
+                <img :src="data.image" />
             </div>
             <div class="textContainer">
                 <div class="headingBox">
-                    <div :class="{ colorPalletteWoman: false, colorPalletteMan: true }">
-                        Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket
+                    <div :class="{
+    colorPalletteWoman: data.woman,
+    colorPalletteMan: data.man,
+}">
+                        {{ data.productName }}
                     </div>
                 </div>
                 <div class="categoryBox">
                     <div class="container">
-                        <div class="category">"women's clothing"</div>
-                        <RatingComponent colorPallette="woman" />
+                        <div class="category">{{ data.category }}</div>
+                        <RatingComponent :woman="data.woman" :man="data.man" :rating="data.rating" />
                     </div>
                 </div>
                 <div class="descriptionBox">
-                    100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25%
-                    COTTON (SWEATER), Faux leather material for style and comfort / 2
-                    pockets of front, 2-For-One Hooded denim style faux leather jacket,
-                    Button detail on waist / Detail stitching at sides, HAND WASH ONLY /
-                    DO NOT BLEACH / LINE DRY / DO NOT IRON
+                    {{ data.description }}
                 </div>
                 <div class="footerBox">
-                    $29,95 <br />
+                    {{ data.price }} <br />
                     <div class="buttonContainer">
                         <div class="buttonItem">
-                            <BuyButton colorPallette="woman" />
+                            <BuyButton :woman="data.woman" :man="data.man" />
                         </div>
                         <div class="buttonItem">
-                            <NextProductButton colorPallette="woman" />
+                            <NextProductButton :woman="data.woman" :man="data.man" />
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -47,10 +44,17 @@ import NextProductButton from "./NextProductButton.vue";
 
 export default {
     name: "ProductDisplay",
+    props: ["dataComponent"],
     components: {
         RatingComponent,
         BuyButton,
         NextProductButton,
+    },
+    data() {
+        return {
+            title: "data",
+            data: this.dataComponent,
+        };
     },
 };
 </script>

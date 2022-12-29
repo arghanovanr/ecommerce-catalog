@@ -1,14 +1,13 @@
 <template>
-    <div :class="{ customButtonWoman: false, customButtonMan: true }">
+    <div :class="{ customButtonWoman: woman, customButtonMan: man }">
         <button>NEXT PRODUCT</button>
     </div>
-
 </template>
 
 <script>
 export default {
     name: "NextProductButton",
-    props: ['colorPallette']
+    props: ["woman", "man"],
 };
 </script>
 

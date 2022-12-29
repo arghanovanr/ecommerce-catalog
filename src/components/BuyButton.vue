@@ -1,19 +1,19 @@
-<template >
-    <div :class="{ customButtonWoman: false, customButtonMan: true }">
+<template>
+    <div :class="{ customButtonWoman: woman, customButtonMan: man }">
         <button>NEXT PRODUCT</button>
     </div>
 </template>
 <script>
 export default {
     name: "ButButton",
-    props: ['colorPallette']
-}
+    props: ["woman", "man"],
+};
 </script>
-<style scoped >
+<style scoped>
 .customButtonWoman button {
     border: 2px solid #720060;
     background-color: #720060;
-    font-family: 'Prompt', sans-serif;
+    font-family: "Prompt", sans-serif;
     color: white;
     padding: 10px;
     margin-right: 20px;
@@ -25,7 +25,7 @@ export default {
 .customButtonMan button {
     border: 2px solid #002772;
     background-color: #002772;
-    font-family: 'Prompt', sans-serif;
+    font-family: "Prompt", sans-serif;
     color: white;
     padding: 10px;
     margin-right: 20px;

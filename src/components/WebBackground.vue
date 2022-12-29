@@ -1,12 +1,17 @@
-<template >
-    <div :class="{ BackgroundWoman: false, BackgroundMan: true }">
-
-    </div>
+<template>
+    <div :class="{ BackgroundWoman: data.woman, BackgroundMan: data.man }"></div>
 </template>
 <script>
 export default {
-    name: "WebBackgorund"
-}
+    name: "WebBackgorund",
+    props: ["dataComponent"],
+    data() {
+        return {
+            title: "data",
+            data: this.dataComponent,
+        };
+    },
+};
 </script>
 <style scoped>
 .BackgroundWoman {
@@ -23,7 +28,7 @@ export default {
     z-index: -1;
     width: 100vw;
     height: 66vh;
-    background-color: #D6E6FF;
+    background-color: #d6e6ff;
     background-image: url("../assets/bg-pattern.svg");
 }
 </style>
