@@ -6,12 +6,14 @@
             </div>
             <div class="textContainer">
                 <div class="headingBox">
-                    Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket
+                    <div :class="{ colorPalletteWoman: false, colorPalletteMan: true }">
+                        Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket
+                    </div>
                 </div>
                 <div class="categoryBox">
                     <div class="container">
                         <div class="category">"women's clothing"</div>
-                        <RatingComponent />
+                        <RatingComponent colorPallette="woman" />
                     </div>
                 </div>
                 <div class="descriptionBox">
@@ -23,8 +25,16 @@
                 </div>
                 <div class="footerBox">
                     $29,95 <br />
-                    <BuyButton />
-                    <NextProductButton />
+                    <div class="buttonContainer">
+                        <div class="buttonItem">
+                            <BuyButton colorPallette="woman" />
+                        </div>
+                        <div class="buttonItem">
+                            <NextProductButton colorPallette="woman" />
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -45,6 +55,14 @@ export default {
 };
 </script>
 <style scoped>
+.colorPalletteWoman {
+    color: #720060;
+}
+
+.colorPalletteMan {
+    color: #002772;
+}
+
 .view {
     width: 100vw;
     height: 100vh;
@@ -88,7 +106,6 @@ export default {
     font-weight: 550;
     font-size: 2rem;
     line-height: 1.2;
-    color: #720060;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,8 +137,15 @@ export default {
     padding-top: 10px;
     flex: 2;
     font-family: "Prompt", sans-serif;
-    color: #720060;
     font-weight: 575;
     font-size: 1.4em;
+}
+
+.buttonContainer {
+    display: flex;
+}
+
+.buttonItem {
+    flex: 1;
 }
 </style>
