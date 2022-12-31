@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ BackgroundWoman: data.waman, BackgroundMan: data.man, Background: data.unavaliable }"></div>
+    <div :class="{ BackgroundWoman: data.woman, BackgroundMan: data.man, Background: data.unavaliable }"></div>
 
 </template>
 <script>
@@ -16,7 +16,8 @@ export default {
 </script>
 <style scoped>
 .BackgroundWoman {
-    position: absolute;
+    position: fixed;
+    top: 0px;
     z-index: -1;
     width: 100vw;
     height: 66vh;
@@ -25,7 +26,8 @@ export default {
 }
 
 .BackgroundMan {
-    position: absolute;
+    position: fixed;
+    top: 0px;
     z-index: -1;
     width: 100vw;
     height: 66vh;
@@ -34,7 +36,8 @@ export default {
 }
 
 .Background {
-    position: absolute;
+    position: fixed;
+    top: 0px;
     z-index: -1;
     width: 100vw;
     height: 66vh;
