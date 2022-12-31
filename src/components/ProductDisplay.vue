@@ -47,6 +47,7 @@
             </div>
         </div>
         <div v-else class="unavaliableView">
+            <WebBackground :dataComponent=category />
             <div class="unavaliableCard">
                 This product is unavaliable to show
                 <button type="button" @click="getProductFromAPI()" class="customNextButton">Next
