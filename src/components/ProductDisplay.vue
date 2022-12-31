@@ -38,6 +38,7 @@
             This product is unavaliable to show
             <NextProductButton :unavaliable="category.unavaliable" />
         </div>
+
     </div>
 
 </template>
@@ -48,7 +49,7 @@ import NextProductButton from "./NextProductButton.vue";
 
 export default {
     name: "ProductDisplay",
-    props: ["dataComponent", "dataCategory"],
+    props: ["dataComponent", "dataCategory", "getIndexProps"],
     components: {
         RatingComponent,
         BuyButton,
@@ -62,7 +63,9 @@ export default {
         };
     },
 };
+
 </script>
+
 <style scoped>
 /* Color Pallette CSS */
 

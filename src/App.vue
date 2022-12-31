@@ -8,7 +8,9 @@
 
     <div v-else>
       <WebBackground :dataComponent=category />
-      <ProductDisplay :dataComponent=data :dataCategory=category />
+      <ProductDisplay :dataComponent=data :dataCategory=category :getIndexProps="getIndex" />
+      <button @click="getProductFromAPI()">KLIK</button>
+      {{ index }}
     </div>
 
   </div>
@@ -35,38 +37,49 @@ export default {
         unavaliable: null,
       },
       loading: false,
+      index: 1
     }
   },
   methods:
   {
     async getProductFromAPI() {
-      const api = await fetch('https://fakestoreapi.com/products/4');
+      if (this.index == 21) {
+        this.index = 1;
+      }
+      this.loading = true;
+      const api = await fetch(`https://fakestoreapi.com/products/${this.index}`);
       const response = await api.json();
       const data = response;
-
-
-
+      alert("data bertambah 1")
       let product = { ...data }
+      this.index++;
       if (product.category === "men's clothing") {
         this.category.man = true;
+        this.category.woman = false;
+        this.category.unavaliable = false;
       }
       else if (product.category === "women's clothing") {
+        this.category.man = false;
         this.category.woman = true;
+        this.category.unavaliable = false;
       }
       else {
+        this.category.man = false;
+        this.category.woman = false;
         this.category.unavaliable = true;
       }
-
+      this.data = data;
       console.log(data);
       console.log(this.category)
-      return data;
+
+      this.loading = false;
+
     }
   },
   mounted() {
-    ((async () => {
-      this.loading = true;
-      this.data = await this.getProductFromAPI();
-    })()).catch(console.error).finally(() => (this.loading = false));
+
+    this.getProductFromAPI();
+
   }
 }
 
@@ -74,6 +87,8 @@ export default {
 </script>
 
 <style>
+/* Loader  */
+
 .view {
   width: 100vw;
   height: 100vh;
@@ -101,6 +116,7 @@ export default {
   }
 }
 
+/* css */
 body {
   margin: 0;
 }
