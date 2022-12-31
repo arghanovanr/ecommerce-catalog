@@ -1,6 +1,6 @@
 <template>
     <div :class="{ customButtonWoman: woman, customButtonMan: man }">
-        <button>NEXT PRODUCT</button>
+        <button>Buy now</button>
     </div>
 </template>
 <script>

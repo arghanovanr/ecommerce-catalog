@@ -1,6 +1,6 @@
 <template>
     <div :class="{ customButtonWoman: woman, customButtonMan: man, customButton: unavaliable, }">
-        <button>NEXT PRODUCT</button>
+        <button>Next product</button>
     </div>
 </template>
 

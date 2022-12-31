@@ -1,32 +1,32 @@
 <template>
-    <div v-if="!data.unavaliable" class="view">
+    <div v-if="!category.unavaliable" class="view">
         <div class="card">
             <div class="imageBox">
                 <img :src="data.image" />
             </div>
             <div class="textContainer">
                 <div class="headingBox">
-                    <div :class="{ colorPalletteWoman: data.woman, colorPalletteMan: data.man, }">
-                        {{ data.productName }}
+                    <div :class="{ colorPalletteWoman: category.woman, colorPalletteMan: category.man, }">
+                        {{ data.title }}
                     </div>
                 </div>
                 <div class="categoryBox">
                     <div class="container">
                         <div class="category">{{ data.category }}</div>
-                        <RatingComponent :woman="data.woman" :man="data.man" :rating="data.rating" />
+                        <RatingComponent :woman="category.woman" :man="category.man" :rating="data.rating.rate" />
                     </div>
                 </div>
                 <div class="descriptionBox">
                     {{ data.description }}
                 </div>
                 <div class="footerBox">
-                    {{ data.price }} <br />
+                    ${{ data.price }} <br />
                     <div class="buttonContainer">
                         <div class="buttonItem">
-                            <BuyButton :woman="data.woman" :man="data.man" />
+                            <BuyButton :woman="category.woman" :man="category.man" />
                         </div>
                         <div class="buttonItem">
-                            <NextProductButton :woman="data.woman" :man="data.man" />
+                            <NextProductButton :woman="category.woman" :man="category.man" />
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
     <div v-else class="unavaliableView">
         <div class="unavaliableCard">
             This product is unavaliable to show
-            <NextProductButton :unavaliable="data.unavaliable" />
+            <NextProductButton :unavaliable="category.unavaliable" />
         </div>
     </div>
 
@@ -48,7 +48,7 @@ import NextProductButton from "./NextProductButton.vue";
 
 export default {
     name: "ProductDisplay",
-    props: ["dataComponent"],
+    props: ["dataComponent", "dataCategory"],
     components: {
         RatingComponent,
         BuyButton,
@@ -58,6 +58,7 @@ export default {
         return {
             title: "data",
             data: this.dataComponent,
+            category: this.dataCategory
         };
     },
 };
@@ -146,8 +147,6 @@ export default {
     font-size: 2rem;
     line-height: 1.2;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .categoryBox {

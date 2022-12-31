@@ -1,5 +1,6 @@
 <template>
-    <div :class="{ BackgroundWoman: data.woman, BackgroundMan: data.man, Background: data.unavaliable }"></div>
+    <div :class="{ BackgroundWoman: data.waman, BackgroundMan: data.man, Background: data.unavaliable }"></div>
+
 </template>
 <script>
 export default {
